@@ -13,9 +13,9 @@ REGISTER YOUR MODULE
 Register your module with your application by editing `tiapp.xml` and adding your module.
 Example:
 
-		<modules>
-			<module version="0.1">clearlyinnovative.keychain</module>
-		</modules>
+	<modules>
+		<module version="0.1">clearlyinnovative.keychain</module>
+	</modules>
 
 When you run your project, the compiler will know automatically compile in your module
 dependencies and copy appropriate image assets into the application.
@@ -27,43 +27,43 @@ To use your module in code, you will need to require it.
 
 For example,
 
-		var keychain = require('clearlyinnovative.keychain');
+	var keychain = require('clearlyinnovative.keychain');
 
-		keychain.setForKey({
-			key: "name",
-			value: "asaunders-two",
-			serviceName: "MYAPPID"
-		},
-		function(data) {
-			Ti.API.info(JSON.stringify(data));
-		});
+	keychain.setForKey({
+		key: "name",
+		value: "asaunders-two",
+		serviceName: "MYAPPID"
+	},
+	function(data) {
+		Ti.API.info(JSON.stringify(data));
+	});
 
-		keychain.getForKey({
-			key: "name",
-			serviceName: "MYAPPID"
-		},
-		function(data) {
-			Ti.API.info(JSON.stringify(data));
-		});
+	keychain.getForKey({
+		key: "name",
+		serviceName: "MYAPPID"
+	},
+	function(data) {
+		Ti.API.info(JSON.stringify(data));
+	});
 
 
-		// removeForKey
-		keychain.removeForKey({
-			key: "name",
-			serviceName: "MYAPPID"
-		},
-		function(data) {
-			Ti.API.info(JSON.stringify(data));
-		});
+	// removeForKey
+	keychain.removeForKey({
+		key: "name",
+		serviceName: "MYAPPID"
+	},
+	function(data) {
+		Ti.API.info(JSON.stringify(data));
+	});
 
-		// SHOULD ERROR SINCE WE REMOVED KEY
-		keychain.getForKey({
-			key: "name",
-			serviceName: "MYAPPID"
-		},
-		function(data) {
-			Ti.API.info(JSON.stringify(data));
-		});
+	// SHOULD ERROR SINCE WE REMOVED KEY
+	keychain.getForKey({
+		key: "name",
+		serviceName: "MYAPPID"
+	},
+	function(data) {
+		Ti.API.info(JSON.stringify(data));
+	});
 
 
 
